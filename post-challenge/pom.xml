@@ -62,10 +62,9 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>5.14.1</version>
+			
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -77,4 +76,13 @@
 		</plugins>
 	</build>
 
+
+
+	<dependencyManagement>
+	
+
+		<dependencies>
+		</dependencies>
+
+	</dependencyManagement>
 </project>
