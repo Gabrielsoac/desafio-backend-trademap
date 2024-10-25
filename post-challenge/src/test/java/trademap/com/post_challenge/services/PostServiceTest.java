@@ -112,7 +112,19 @@ public class PostServiceTest {
             () -> Assertions.assertInstanceOf(Instant.class, post.getUpdatedAt()));
     }
 
-    
+    @Test
+    @DisplayName("Should to delete a post with sucess")
+    void test5(){
+
+        Post post = PostBuilder.aBuilder().build();
+
+        postService.deletePost(post);
+
+        Mockito.verify(postRepository, Mockito.times(1))
+        .delete(Mockito.any(Post.class));
+    }
+
+
 
     
 

@@ -2,6 +2,9 @@ package trademap.com.post_challenge.services.Impl;
 
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
@@ -44,6 +47,11 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
+    public Page<Post> getAllPosts(Pageable pageable) {
+       return postRepository.findAll(pageable);
+    }
+
+    @Override
     @Transactional
     public Post updatePost(Post post, String title, String description, String body) {
 
@@ -82,7 +90,4 @@ public class PostServiceImpl implements PostService{
         if (body == null) throw new IllegalArgumentException("Body cannot be null");
         if (body.isEmpty()) throw new IllegalArgumentException("Body cannot be empty");
     }
-
-    
-
 }
