@@ -1,5 +1,6 @@
 package trademap.com.post_challenge.services;
 
+import java.time.Instant;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -92,6 +93,28 @@ public class PostServiceTest {
         () -> postService.getPost("1"));
     }
 
+    @Test
+    @DisplayName("Should to update a Post with sucess")
+    void test4(){
+
+        Post beforePost = PostBuilder.aBuilder().build(); 
+
+        Post post = postService.updatePost(
+            beforePost,
+            "Updated title",
+            "Updated description",
+            "Updated body");
+
+            Assertions.assertAll("Post Data",
+            () -> Assertions.assertEquals("Updated title", post.getTitle()),
+            () -> Assertions.assertEquals("Updated description", post.getDescription()),
+            () -> Assertions.assertEquals("Updated body", post.getBody()),
+            () -> Assertions.assertInstanceOf(Instant.class, post.getUpdatedAt()));
+    }
+
+    
+
+    
 
 
 }
