@@ -1,5 +1,6 @@
 package trademap.com.post_challenge.services;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
@@ -12,8 +13,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import trademap.com.post_challenge.builders.PostBuilder;
 import trademap.com.post_challenge.domain.entities.Post;
+import trademap.com.post_challenge.domain.exceptions.PostNotFoundException;
 import trademap.com.post_challenge.repositories.PostRepository;
+import trademap.com.post_challenge.services.Impl.PostServiceImpl;
 
 @SpringBootTest
 public class PostServiceTest {
@@ -24,7 +28,7 @@ public class PostServiceTest {
     @BeforeEach
     void setUp(){
         postRepository = Mockito.mock(PostRepository.class);
-        postService = new PostService(postRepository);
+        postService = new PostServiceImpl(postRepository);
     }
 
 
@@ -62,6 +66,32 @@ public class PostServiceTest {
     }
 
     @Test
-    @
+    @DisplayName("Should to get a post with sucess")
+    void test2(){
+
+        Mockito.when(postRepository.findById(Mockito.anyString()))
+        .thenReturn(Optional.of(PostBuilder.aBuilder().build()));
+
+        Post post = postService.getPost("1");
+
+        Assertions.assertAll("Post Data",
+        () -> Assertions.assertEquals("Title Test", post.getTitle()),
+        () -> Assertions.assertEquals("Description Test", post.getDescription()),
+        () -> Assertions.assertEquals("Body Test", post.getBody()),
+        () -> Assertions.assertEquals("1", post.getId()));
+    }
+
+    @Test
+    @DisplayName("Should to throw exception when post not found")
+    void test3(){
+
+        Mockito.when(postRepository.findById(Mockito.anyString()))
+        .thenReturn(Optional.empty());
+
+        Assertions.assertThrows(PostNotFoundException.class,
+        () -> postService.getPost("1"));
+    }
+
+
 
 }
