@@ -7,5 +7,5 @@ public interface PostService {
     Post createPost(String title, String description, String body);
     Post getPost(String id);
     Post updatePost(Post post, String title, String description, String body);
-    void deletePost(String id);   
+    void deletePost(Post post);   
 }

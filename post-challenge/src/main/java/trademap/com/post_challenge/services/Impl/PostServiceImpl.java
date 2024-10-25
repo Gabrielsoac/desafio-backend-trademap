@@ -68,9 +68,8 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public void deletePost(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletePost'");
+    public void deletePost(Post post) {
+        deletePost(post);
     }
 
     private void validateData(String title, String description, String body){
