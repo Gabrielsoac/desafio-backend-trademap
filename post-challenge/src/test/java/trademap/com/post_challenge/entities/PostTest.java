@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import trademap.com.post_challenge.builders.PostBuilder;
+import trademap.com.post_challenge.domain.entities.Post;
 
 @SpringBootTest
 public class PostTest {
