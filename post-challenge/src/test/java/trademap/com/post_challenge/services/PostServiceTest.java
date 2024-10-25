@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import trademap.com.post_challenge.entities.Post;
+import trademap.com.post_challenge.domain.entities.Post;
 import trademap.com.post_challenge.repositories.PostRepository;
 
 @SpringBootTest
@@ -60,5 +60,8 @@ public class PostServiceTest {
             Arguments.of("Title", "Description", null, "Body cannot be null"),
             Arguments.of("Title", "Description", "", "Body cannot be empty"));
     }
+
+    @Test
+    @
 
 }

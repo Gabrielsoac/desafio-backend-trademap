@@ -2,7 +2,7 @@ package trademap.com.post_challenge.builders;
 
 import java.time.Instant;
 
-import trademap.com.post_challenge.entities.Post;
+import trademap.com.post_challenge.domain.entities.Post;
 
 public class PostBuilder {
     
