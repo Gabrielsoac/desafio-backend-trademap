@@ -69,7 +69,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public void deletePost(Post post) {
-        deletePost(post);
+        postRepository.delete(post);
     }
 
     private void validateData(String title, String description, String body){
