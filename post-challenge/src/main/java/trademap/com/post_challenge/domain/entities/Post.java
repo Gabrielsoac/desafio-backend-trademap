@@ -2,6 +2,7 @@ package trademap.com.post_challenge.domain.entities;
 
 import java.time.Instant;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity(name = "post")
+@Entity
 @Table(name = "tb_post")
 public class Post {
 
@@ -30,7 +31,6 @@ public class Post {
     private Instant updatedAt;
 
     public Post(String id, String title, String description, String body, Instant createdAt, Instant updatedAt) {
-        
         this.id = id;
         this.title = title;
         this.description = description;
@@ -45,6 +45,7 @@ public class Post {
         this.description = description;
         this.body = body;
         this.createdAt = Instant.now();
+        this.updatedAt = createdAt;
     }
 
     public Post() {
@@ -59,8 +60,6 @@ public class Post {
     }
 
     public void setTitle(String title) {
-        if(title == null) throw new IllegalArgumentException("Title cannot be null");
-        if(title.isEmpty()) throw new IllegalArgumentException("Title cannot be empty");
         this.title = title;
     }
 
@@ -69,8 +68,6 @@ public class Post {
     }
 
     public void setDescription(String description) {
-        if(description == null) throw new IllegalArgumentException("Description cannot be null");
-        if(description.isEmpty()) throw new IllegalArgumentException("Description cannot be empty");
         this.description = description;
     }
 
@@ -79,8 +76,6 @@ public class Post {
     }
 
     public void setBody(String body) {
-        if(body == null) throw new IllegalArgumentException("Body cannot be null");
-        if(body.isEmpty()) throw new IllegalArgumentException("Body cannot be empty");
         this.body = body;
     }
 

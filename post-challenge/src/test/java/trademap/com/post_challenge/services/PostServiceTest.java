@@ -32,7 +32,6 @@ public class PostServiceTest {
         postService = new PostServiceImpl(postRepository);
     }
 
-
     @Test
     @DisplayName("Should to create a new post with sucess")
     void test(){
@@ -123,10 +122,4 @@ public class PostServiceTest {
         Mockito.verify(postRepository, Mockito.times(1))
         .delete(Mockito.any(Post.class));
     }
-
-
-
-    
-
-
 }

@@ -1,9 +1,9 @@
 package trademap.com.post_challenge.services.Impl;
 
+import java.time.Instant;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +16,20 @@ import trademap.com.post_challenge.services.PostService;
 @Service
 public class PostServiceImpl implements PostService{
     
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
 
     public PostServiceImpl(PostRepository postRepository){
         this.postRepository = postRepository;
     }
 
     @Override
-    @Transactional
     public Post createPost(String title, String description, String body){
 
-        validateData(title, description, body);
+        validateData(title, body);
+
+        if(description == null) {
+            description = "";
+        }
 
         Post post = new Post(title, description, body);
 
@@ -47,15 +50,19 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Page<Post> getAllPosts(Pageable pageable) {
-       return postRepository.findAll(pageable);
+    public Page<Post> getAllPosts(Instant initialDate, Instant finalDate, Pageable pageable) {
+        return postRepository.findAllByCreatedAtBetween(initialDate, finalDate, pageable);
     }
-
+    
     @Override
     @Transactional
     public Post updatePost(Post post, String title, String description, String body) {
 
-        validateData(title, description, body);
+        validateData(title, body);
+
+        if(description == null) {
+            description = "";
+        }
 
         if (!post.getTitle().equals(title)){
             post.setTitle(title);
@@ -71,7 +78,6 @@ public class PostServiceImpl implements PostService{
             post.setBody(body);
             post.setUpdatedAtNow();
         }
-
         return post; 
     }
 
@@ -80,12 +86,9 @@ public class PostServiceImpl implements PostService{
         postRepository.delete(post);
     }
 
-    private void validateData(String title, String description, String body){
+    private void validateData(String title, String body){
         if (title == null) throw new IllegalArgumentException("Title cannot be null");
         if (title.isEmpty()) throw new IllegalArgumentException("Title cannot be empty");
-
-        if (description == null) throw new IllegalArgumentException("Description cannot be null");
-        if (description.isEmpty()) throw new IllegalArgumentException("Description cannot be empty");
 
         if (body == null) throw new IllegalArgumentException("Body cannot be null");
         if (body.isEmpty()) throw new IllegalArgumentException("Body cannot be empty");

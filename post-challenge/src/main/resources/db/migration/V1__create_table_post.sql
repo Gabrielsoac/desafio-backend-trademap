@@ -3,6 +3,6 @@ CREATE TABLE tb_post (
     title VARCHAR(255) NOT NULL,
     post_description VARCHAR(255),
     body TEXT NOT NULL,
-    created_at DATE NOT NULL,
-    updated_at DATE
+    created_at TIMESTAMPTZ NOT NULL,
+    updated_at TIMESTAMPTZ
 );
