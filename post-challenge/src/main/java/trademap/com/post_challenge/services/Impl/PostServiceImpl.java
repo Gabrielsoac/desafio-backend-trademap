@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import jakarta.transaction.Transactional;
 import trademap.com.post_challenge.domain.entities.Post;
+import trademap.com.post_challenge.domain.exceptions.DateFormatException;
 import trademap.com.post_challenge.domain.exceptions.PostNotFoundException;
 import trademap.com.post_challenge.repositories.PostRepository;
 import trademap.com.post_challenge.services.PostService;
@@ -46,7 +47,7 @@ public class PostServiceImpl implements PostService{
             return postOptional.get();
         }
 
-        throw new PostNotFoundException("Post not found!");
+        throw new PostNotFoundException("Post not found");
     }
 
     @Override
