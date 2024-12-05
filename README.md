@@ -34,7 +34,7 @@ A entidade `Post`, deve ter os seguintes campos:
 
   <br>
 
-  ## Comecei por aqui
+  ## Comece por aqui
 
   > O PostMap é um projeto criado por mim para a vaga back-end da TradeMap
  
