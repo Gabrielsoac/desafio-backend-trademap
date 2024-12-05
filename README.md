@@ -78,6 +78,8 @@ A entidade `Post`, deve ter os seguintes campos:
 
 
   ## END-POINTS
+  > Caso já esteja com o projeto rodando e queira acompanhar a leitura e testes dos end-points, <br>
+  há a opção realizar a leitura via Swagger API, no navegador digite: `http://localhost:8080/swagger-ui/index.html`
   
   ### **Listar todos os Posts**
 
