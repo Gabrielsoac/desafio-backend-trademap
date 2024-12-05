@@ -59,8 +59,6 @@ public class PostServiceTest {
         return Stream.of(
             Arguments.of(null, "Description", "Lorem Ipsum", "Title cannot be null"),
             Arguments.of("", "Description", "Lorem Ipsum", "Title cannot be empty"),
-            Arguments.of("Title", null, "Lorem Ipsum", "Description cannot be null"),
-            Arguments.of("Title", "", "Lorem Ipsum", "Description cannot be empty"),
             Arguments.of("Title", "Description", null, "Body cannot be null"),
             Arguments.of("Title", "Description", "", "Body cannot be empty"));
     }

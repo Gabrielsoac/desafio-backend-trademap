@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: db-post
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: trademap
+      POSTGRES_USER: postgres
+      POSTGRES_DB: post
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  api-reports:
+    build: .
+    container_name: api-post
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/post
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: trademap
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge
