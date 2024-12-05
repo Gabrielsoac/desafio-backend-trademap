@@ -19,7 +19,7 @@ A entidade `Post`, deve ter os seguintes campos:
 - description -> Descrição do Post.
 - body -> Corpo do Post.
 - created_at -> Data de criação do Post.
-- updated_at -> Data de atualização do Post.""
+- updated_at -> Data de atualização do Post."
 
 # Solução
 
