@@ -1,8 +1,5 @@
 package trademap.com.post_challenge.controllers;
 
-import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
 
 import org.springframework.data.domain.PageRequest;
@@ -17,12 +14,10 @@ import trademap.com.post_challenge.controllers.DTOs.request.RequestUpdatePostDTO
 import trademap.com.post_challenge.controllers.DTOs.response.ResponsePageblePostDTO;
 import trademap.com.post_challenge.controllers.DTOs.response.ResponsePostDTO;
 import trademap.com.post_challenge.domain.entities.Post;
-import trademap.com.post_challenge.domain.exceptions.DateFormatException;
 import trademap.com.post_challenge.services.PostService;
 import trademap.com.post_challenge.services.Impl.PostServiceImpl;
 
 import java.net.URI;
-import java.sql.Timestamp;
 import java.time.*;
 import java.util.HashSet;
 import java.util.Optional;
