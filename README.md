@@ -57,15 +57,15 @@ A entidade `Post`, deve ter os seguintes campos:
 
   <br>
 
-  Caso ocorra algum problema de "port already in use", o projeto PostMap utiliza a porta 8080 para executar a API e a 5432 (Padrão do PostgreSQL). <br>
-  Lembre-se de fechar qualquer projeto que esteja utilizando essas portas
+  Caso ocorra algum problema de "port already in use", o projeto PostMap utiliza a porta 8080 para executar a API e a 5432 para o banco de dados (Padrão do PostgreSQL). <br>
+  Lembre-se de fechar qualquer serviço que esteja utilizando essas portas
 
   ### Caso tenha erros com a porta 5432
   Utilize o comando: <br>
   ```
   sudo systemctl stop postgres
   ```
-  Isso irá para o postgres do seu host, mas não se preocupe, após testar a API, poderá ativar seu postgres novamente com o comando: <br>
+  Isso pausará o postgres do seu host, mas não se preocupe, após testar a API, poderá ativar seu postgres novamente com o comando: <br>
     ```
   sudo systemctl start postgres
   ```
@@ -73,7 +73,7 @@ A entidade `Post`, deve ter os seguintes campos:
   
   ## Projeto 
   1. O Projeto PostMap seguiu os requisitos do desafio, foi utilizado o princípio SOLID para criar a arquitetura MVC com Services.
-  2. Realizado o desenvolvimento do CRUD de posts (Simulando uma rede social)
+  2. Realizado o desenvolvimento do CRUD de Posts
   3. A aplicação foi dockerizada com Multi-staging no Dockerfile para disponibilizar uma imagem mais leve e também automatizada com Docker-compose para fácil inicialização.
 
 
