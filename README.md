@@ -30,6 +30,7 @@ A entidade `Post`, deve ter os seguintes campos:
 - PostgreSQL 16
 - Docker
 - FlyWay (Migrattions)
+- Junit5
 - Swagger (Documentação da API)
 
   <br>
