@@ -205,9 +205,9 @@ A entidade `Post`, deve ter os seguintes campos:
     ```
     {
         "id": "9ca1bcd4-835e-4b47-b274-e0268fdb9ac7",
-        "title": "POST PRO JUZVO",
-        "description": "POST DO JUZVO",
-        "body": "JUZVO VAI APRENDER JS DE VERDADE!",
+        "title": "POST DE TESTE",
+        "description": "TESTE",
+        "body": "ESTE É UM POST DE TESTE"",
         "createdAt": "2024-12-05T18:38:05.775401163Z",
         "updatedAt": "2024-12-05T18:38:05.775401163Z"
     }```
